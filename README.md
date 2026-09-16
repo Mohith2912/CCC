@@ -770,21 +770,6 @@ int main() {
 ```
 
 ---
-
-## Corrections Made in This README
-
-The code shown above is the **corrected / completed form** of each original file:
-
-| File(s) | Fix Applied |
-|---------|-------------|
-| `mv0.cpp` | The original file was **incomplete** — it only read the array, and it checked `n == 0` **before** reading `n` (an uninitialized variable → undefined behaviour). It has been completed as a *move-zeros-to-the-end* program with the check moved after the input. |
-| `rep.cpp` | The empty-array check `if (n == 0)` ran **before** `n` was read (undefined behaviour). It is now placed right after `cin >> n`. The unused `#include <climits>` was also removed. |
-| `btr.cpp`, `grade1.cpp`, `hprmd.cpp`, `htri.cpp`, `nestdfor.cpp`, `prmd.cpp`, `sum.cpp` | Added the missing `return 0;` at the end of `main()` (good practice — `main()` returns `0` implicitly anyway). |
-| `even_odd.cpp` | Fixed the typo `INsufficient` → `Insufficient`. (The file name also does not match the program — see the note in section 4.) |
-
-> **Note:** The array programs use `int arr[n]` (a variable-length array). This is a GCC/MinGW extension rather than standard C++, but it compiles fine with `g++`, which is how these programs are built.
-
-**Happy Coding! 🎉**
  
 
 
