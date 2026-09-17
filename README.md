@@ -1,6 +1,6 @@
 # C++ Programs Collection 🚀
 
-A collection of **19 beginner-friendly C++ practice programs** covering loops, patterns, arrays, conditional statements, and number manipulation. Each program is listed below with its title, a short description, and the corrected form of its code.
+A collection of **24 beginner-friendly C++ practice programs** covering loops, patterns, arrays, strings, matrices, conditional statements, and number manipulation. Each program is listed below with its title, a short description, and the corrected form of its code.
 
 ---
 
@@ -24,22 +24,27 @@ Then run the executable:
 | 1 | `an.cpp` | Sum of First N Natural Numbers | `for` loop |
 | 2 | `arr.cpp` | Array Input and Display | Arrays |
 | 3 | `btr.cpp` | Butterfly Star Pattern | Nested loops |
-| 4 | `even_odd.cpp` | Bank Login Simulation with Withdrawal | `if-else`, strings |
-| 5 | `factor.cpp` | Factors of a Number | `for` loop, `%` operator |
-| 6 | `grade.cpp` | Grade Calculator (if-else ladder) | `if-else` |
-| 7 | `grade1.cpp` | Grade Calculator (switch-case) | `switch` |
-| 8 | `hprmd.cpp` | Hollow Diamond Star Pattern | Nested loops |
-| 9 | `htri.cpp` | Hollow Number Triangle Pattern | Nested loops |
-| 10 | `loop.cpp` | Print Even Numbers from 1 to N | `for` loop |
-| 11 | `mnmx.cpp` | Maximum and Minimum in an Array | Arrays |
-| 12 | `mv0.cpp` | Move Zeros to the End of an Array | Arrays |
-| 13 | `nestdfor.cpp` | Right-Aligned Star Triangle | Nested loops |
-| 14 | `palindrome.cpp` | Palindrome Number Check | `while` loop |
-| 15 | `pd.cpp` | Palindromic Number Pyramid Pattern | Nested loops |
-| 16 | `prmd.cpp` | Diamond Star Pattern | Nested loops |
-| 17 | `rep.cpp` | Count Occurrences of Each Array Element | Arrays |
-| 18 | `revarr.cpp` | Reverse an Array (Two-Pointer) | Arrays |
-| 19 | `sum.cpp` | Reverse the Digits of a Number | `while` loop |
+| 4 | `count.cpp` | Count Character Types in a String | Strings, `if-else` |
+| 5 | `even_odd.cpp` | Bank Login Simulation with Withdrawal | `if-else`, strings |
+| 6 | `fact.cpp` | Factorial of a Number | `for` loop |
+| 7 | `factor.cpp` | Factors of a Number | `for` loop, `%` operator |
+| 8 | `firstnorepch.cpp` | First Non-Repeating Character in a String | Strings, nested loops |
+| 9 | `firstrepeatingstr.cpp` | First Repeating Character in a String | Strings, nested loops |
+| 10 | `grade.cpp` | Grade Calculator (if-else ladder) | `if-else` |
+| 11 | `grade1.cpp` | Grade Calculator (switch-case) | `switch` |
+| 12 | `hprmd.cpp` | Hollow Diamond Star Pattern | Nested loops |
+| 13 | `htri.cpp` | Hollow Number Triangle Pattern | Nested loops |
+| 14 | `loop.cpp` | Print Even Numbers from 1 to N | `for` loop |
+| 15 | `mnmx.cpp` | Maximum and Minimum in an Array | Arrays |
+| 16 | `mv0.cpp` | Move Zeros to the End of an Array | Arrays |
+| 17 | `nestdfor.cpp` | Right-Aligned Star Triangle | Nested loops |
+| 18 | `palindrome.cpp` | Palindrome Number Check | `while` loop |
+| 19 | `pd.cpp` | Palindromic Number Pyramid Pattern | Nested loops |
+| 20 | `prmd.cpp` | Diamond Star Pattern | Nested loops |
+| 21 | `rep.cpp` | Count Occurrences of Each Array Element | Arrays |
+| 22 | `revarr.cpp` | Reverse an Array (Two-Pointer) | Arrays |
+| 23 | `rot.cpp` | Matrix Input and Display | 2D `vector` |
+| 24 | `sum.cpp` | Reverse the Digits of a Number | `while` loop |
 
 ---
 
@@ -150,7 +155,46 @@ int main() {
 
 ---
 
-## 4. Bank Login Simulation with Withdrawal — `even_odd.cpp`
+## 4. Count Character Types in a String — `count.cpp`
+
+Reads a full line of text using `getline` and counts how many alphabets, digits, spaces, and special characters it contains.
+
+**Sample run:** input `Hello World 123!` → `Alphabets: 10`, `Digits: 3`, `Spaces: 2`, `Special Characters: 1`
+
+```cpp
+#include <iostream>
+using namespace std;
+int main() {
+    string str;
+    int alphabets = 0, digits = 0, spaces = 0, special = 0;
+    cout << "Enter a string: ";
+    getline(cin, str);
+    for (int i = 0; i < str.length(); i++) {
+        char ch = str[i];
+        if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')) {
+            alphabets++;
+        }
+        else if (ch >= '0' && ch <= '9') {
+            digits++;
+        }
+        else if (ch == ' ' || ch == '\t' || ch == '\n') {
+            spaces++;
+        }
+        else {
+            special++;
+        }
+    }
+    cout << "Alphabets: " << alphabets << endl;
+    cout << "Digits: " << digits << endl;
+    cout << "Spaces: " << spaces << endl;
+    cout << "Special Characters: " << special << endl;
+    return 0;
+}
+```
+
+---
+
+## 5. Bank Login Simulation with Withdrawal — `even_odd.cpp`
 
 Checks the username and password; on successful login it lets the user withdraw an amount from the bank balance (if sufficient) and shows the remaining balance.
 
@@ -191,7 +235,36 @@ int main() {
 
 ---
 
-## 5. Factors of a Number — `factor.cpp`
+## 6. Factorial of a Number — `fact.cpp`
+
+Reads a number `n` and computes its factorial (`1 * 2 * 3 * ... * n`) using a `for` loop. A negative input is rejected.
+
+**Sample run:** for `n = 5` → `Factorial of 5 is: 120`
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a Number : " << endl;
+    cin >> n;
+    if (n < 0) {
+        cout << "Negative value not possible : ";
+        return 0;
+    }
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact = fact * i;
+    }
+    cout << "Factorial of " << n << " is: " << fact << endl;
+    return 0;
+}
+```
+
+---
+
+## 7. Factors of a Number — `factor.cpp`
 
 Prints all factors (divisors) of the given number — every `i` from `1` to `n/2` that divides `n` evenly, followed by `n` itself.
 
@@ -217,7 +290,83 @@ int main() {
 
 ---
 
-## 6. Grade Calculator (if-else ladder) — `grade.cpp`
+## 8. First Non-Repeating Character in a String — `firstnorepch.cpp`
+
+Reads a word and finds the first character that occurs exactly once in it. For every character, an inner loop counts its total occurrences in the string; the first one with a count of `1` is printed. If every character repeats, it prints `No non-repeating char`.
+
+**Sample run:** input `swiss` → `First Non-Repeating Char: w`
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string:";
+    cin >> str;
+    int flag = 0;
+    for (int i = 0; i < str.length(); i++) {
+        int count = 0;
+        for (int j = 0; j < str.length(); j++) {
+            if (str[i] == str[j]) {
+                count++;
+            }
+        }
+        if (count == 1) {
+            cout << "First Non-Repeating Char: " << str[i] << endl;
+            flag = 1;
+            break;
+        }
+    }
+    if (flag == 0) {
+        cout << "No non-repeating char" << endl;
+    }
+    return 0;
+}
+```
+
+---
+
+## 9. First Repeating Character in a String — `firstrepeatingstr.cpp`
+
+Reads a word and finds the first character that appears again later in the string. For every position `i`, an inner loop scans the rest of the string (`j > i`) for a match; the first character found this way is printed, otherwise `No Repeating Character`.
+
+**Sample run:** input `hello` → `First Repeating Character is : l`
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a String : " ;
+    cin >> str;
+    int flag = 0;
+    for (int i = 0; i < str.length(); i++) {
+        int count = 0;
+        for (int j = i + 1; j < str.length(); j++) {
+            if (str[i] == str[j]) {
+                count++;
+            }
+        }
+        if (count > 0) {
+            cout << "First Repeating Character is : " << str[i] << endl;
+            flag = 1;
+            break;
+        }
+    }
+    if (flag == 0) {
+        cout << "No Repeating Character " << endl;
+    }
+    return 0;
+}
+```
+
+---
+
+## 10. Grade Calculator (if-else ladder) — `grade.cpp`
 
 Assigns a grade based on the marks entered: A (≥ 90), B (≥ 80), C (≥ 70), D (≥ 60), otherwise F.
 
@@ -250,7 +399,7 @@ int main() {
 
 ---
 
-## 7. Grade Calculator (switch-case) — `grade1.cpp`
+## 11. Grade Calculator (switch-case) — `grade1.cpp`
 
 Same grading logic as above, implemented with a `switch` statement on `marks / 10` (so 90–100 → A, 80–89 → B, and so on).
 
@@ -286,7 +435,7 @@ int main() {
 
 ---
 
-## 8. Hollow Diamond Star Pattern — `hprmd.cpp`
+## 12. Hollow Diamond Star Pattern — `hprmd.cpp`
 
 Prints a hollow diamond — only the left and right edges of each row are stars, the inside is filled with spaces. The pattern grows (rows 1 → n) and then shrinks (rows n-1 → 1).
 
@@ -344,7 +493,7 @@ int main() {
 
 ---
 
-## 9. Hollow Number Triangle Pattern — `htri.cpp`
+## 13. Hollow Number Triangle Pattern — `htri.cpp`
 
 Prints a hollow right-angled triangle of numbers — only the first column, the diagonal (i == j) and the last row (i == n) are printed.
 
@@ -383,7 +532,7 @@ int main() {
 
 ---
 
-## 10. Print Even Numbers from 1 to N — `loop.cpp`
+## 14. Print Even Numbers from 1 to N — `loop.cpp`
 
 Prints every even number from 1 to `n`, one per line, using a `for` loop with the `%` (modulo) operator.
 
@@ -408,7 +557,7 @@ int main() {
 
 ---
 
-## 11. Maximum and Minimum in an Array — `mnmx.cpp`
+## 15. Maximum and Minimum in an Array — `mnmx.cpp`
 
 Reads `n` array elements and finds the largest (`max`) and smallest (`min`) values.
 
@@ -445,7 +594,7 @@ int main() {
 
 ---
 
-## 12. Move Zeros to the End of an Array — `mv0.cpp`
+## 16. Move Zeros to the End of an Array — `mv0.cpp`
 
 Reads `n` array elements and shifts every `0` to the end of the array while keeping the relative order of the non-zero elements.
 
@@ -497,7 +646,7 @@ int main() {
 
 ---
 
-## 13. Right-Aligned Star Triangle — `nestdfor.cpp`
+## 17. Right-Aligned Star Triangle — `nestdfor.cpp`
 
 Prints a right-aligned triangle of stars using nested `for` loops (leading spaces, then stars).
 
@@ -534,7 +683,7 @@ int main() {
 
 ---
 
-## 14. Palindrome Number Check — `palindrome.cpp`
+## 18. Palindrome Number Check — `palindrome.cpp`
 
 Reverses the digits of the number and checks whether the reversed value equals the original (i.e., whether the number is a palindrome).
 
@@ -567,7 +716,7 @@ int main() {
 
 ---
 
-## 15. Palindromic Number Pyramid Pattern — `pd.cpp`
+## 19. Palindromic Number Pyramid Pattern — `pd.cpp`
 
 Prints a pyramid in which every row is a palindrome of numbers — `1`, then `1 2 1`, then `1 2 3 2 1`, and so on.
 
@@ -608,7 +757,7 @@ int main() {
 
 ---
 
-## 16. Diamond Star Pattern — `prmd.cpp`
+## 20. Diamond Star Pattern — `prmd.cpp`
 
 Prints a full diamond of stars — an upward pyramid (rows 1 → n) followed by a downward pyramid (rows n-1 → 1).
 
@@ -656,7 +805,7 @@ int main() {
 
 ---
 
-## 17. Count Occurrences of Each Array Element — `rep.cpp`
+## 21. Count Occurrences of Each Array Element — `rep.cpp`
 
 Reads `n` array elements and prints how many times each distinct element occurs in the array.
 
@@ -703,7 +852,7 @@ int main() {
 
 ---
 
-## 18. Reverse an Array (Two-Pointer Method) — `revarr.cpp`
+## 22. Reverse an Array (Two-Pointer Method) — `revarr.cpp`
 
 Reads `n` array elements, reverses them in place using two indices (`left` and `right`) that swap elements while moving towards the centre, then prints the reversed array.
 
@@ -743,7 +892,60 @@ int main() {
 
 ---
 
-## 19. Reverse the Digits of a Number — `sum.cpp`
+## 23. Matrix Input and Display — `rot.cpp`
+
+Reads an `n x n` square matrix into a 2D `vector` and prints it back row by row. A non-positive size is rejected with `Invalid size!`.
+
+> **Note:** Despite the file name `rot.cpp`, this program does not rotate the matrix — it only reads and displays it.
+
+**Sample run:** size `2`, elements `1 2 3 4` →
+
+```
+Matrix is :
+1 2
+3 4
+```
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "Invalid size!" << endl;
+        return 1;
+    }
+
+    // Create n x n matrix using vector
+    vector<vector<int>> arr(n, vector<int>(n));
+
+    // Input matrix
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> arr[i][j];
+        }
+    }
+
+    // Output matrix
+    cout << "Matrix is : " << endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+```
+
+---
+
+## 24. Reverse the Digits of a Number — `sum.cpp`
 
 Reverses the digits of a number using arithmetic (`% 10` and `/ 10`) inside a `while` loop.
 

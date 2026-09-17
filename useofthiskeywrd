@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+class Srm{
+    public:
+    int data;
+    Srm (int data)
+    {
+        this->data=data;
+    }
+    void print(){
+        cout<<data;
+    }
+};
+int main(){
+        Srm *ob=new Srm(10);
+        ob->print();
+}
